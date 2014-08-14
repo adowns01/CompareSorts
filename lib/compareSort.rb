@@ -8,6 +8,9 @@ class CompareSort
   end 
 end
 
+
+
+
 class SelectionSort
 	def self.run(data)
 
