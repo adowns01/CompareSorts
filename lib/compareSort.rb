@@ -8,6 +8,35 @@ class CompareSort
   end 
 end
 
+class SelectionSort
+	def self.run(data)
+
+		data.each_with_index do |datum, i|
+			min = datum
+			min_spot = i
+
+			(data.length - i).times do |j|
+
+				if data[j+i] < min
+					min = data[j + i]
+					min_spot = j +i
+				end 
+			end 
+
+			if min != datum 
+				#then swap 
+				data[min_spot] = datum
+				data[i] = min
+			end 
+		end
+
+		p data
+
+	end
+
+
+end 
+
 
 class ModifiedBubbleSort
 	def self.run(data)
