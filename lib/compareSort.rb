@@ -1,10 +1,31 @@
 class CompareSort
-  def self.bubble(data)
-    return BubbleSort.run(data)
+  def self.bubble(data, time = false)
+
+  	if time 
+  		lam = lambda { BubbleSort.run(data) }
+  		return self.time(lam)
+  	else 
+    	return BubbleSort.run(data)
+    end
+
   end
 
-  def self.modBubble(data)
-    return ModifiedBubbleSort.run(data)
+  def self.modBubble(data, time = false)
+  	if time 
+  		lam = lambda { ModifiedBubbleSort.run(data) }
+  		return self.time(lam)
+  	else 
+    	return ModifiedBubbleSort.run(data)
+    end
+    
+  end 
+
+  def self.time(sorting_method)
+  	start_time = Time.now
+  	sorted_list = sorting_method.call 
+  	end_time = Time.now
+
+  	return end_time - start_time
   end 
 end
 
