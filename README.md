@@ -1,5 +1,5 @@
-#compareSort
-<strong>compareSort</strong> is a gem that allows users to select a specific sorting algorithm to use, time a specific algorithm, or compare the times of all sorting algorithms. 
+#compare-sort
+<strong>compare-sort</strong> is a gem that allows users to select a specific sorting algorithm to use, time a specific algorithm, or compare the times of all sorting algorithms. 
 
 See the gem homepage [here](https://rubygems.org/gems/graph-ruby/).
 
@@ -7,12 +7,12 @@ See the gem homepage [here](https://rubygems.org/gems/graph-ruby/).
 
 In the terminal run 
 ```ruby
-gem install compareSort
+gem install compare-sort
 ```
 
 Add the following to the top of your Ruby file
 ```ruby
-require 'compareSort'
+require 'compare-sort'
 ```
 
 ##Usage
