@@ -23,7 +23,7 @@ class CompareSort
 
 	def self.compare_all(data, view=false)
 
-		sorting_methods = %w(SelectionSort BubbleSort ModifiedBubbleSort)
+		sorting_methods = %w(SelectionSort BubbleSort ModifiedBubbleSort InsertionSort)
 		sorting_times = {}
 
 		sorting_methods.each do |method|
@@ -57,6 +57,26 @@ class View
 end 
 
 
+class InsertionSort
+	def self.run(data)
+
+		# iterate through each element
+		data.each_with_index do |unsorted_num, i|
+			data[0..i].each_with_index do |sorted_num, j|
+					
+				if sorted_num > unsorted_num
+					# insert to its new spot
+					data.insert(j, unsorted_num)
+					# delete it from old spot
+					data.delete_at(i+1)
+					break
+				end
+
+			end
+		end		
+		return data
+	end 
+end 
 
 
 class SelectionSort
