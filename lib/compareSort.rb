@@ -58,9 +58,6 @@ class View
 	end 
 end 
 
-<<<<<<< HEAD
-class Validation 
-=======
 class ValidateData
 
 	def self.run(data)
@@ -96,7 +93,6 @@ class ValidateData
 			end
 		end 
 	end
->>>>>>> master
 end 
 
 

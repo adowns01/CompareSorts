@@ -1,6 +1,26 @@
 require_relative 'compareSort'
 require 'rspec'
 
+
+
+describe "ValidateData" do
+	it "raises no error if data is array" do 
+		expect { ValidateData.run([]) }.not_to raise_error
+	end 
+	it "raises an error if data is not an array" do 
+		expect { ValidateData.run({}) }.to raise_error
+	end 
+	it "raises an error if data is not ALL numbers or strings" do 
+		expect { ValidateData.run(["a", 1]) }.to raise_error
+	end 
+	it "does not raise an error if data IS all numbers" do 
+		expect { ValidateData.run([1, 2, 3]) }.not_to raise_error
+	end 
+	it "does not raise an error if data is all strings" do
+		expect { ValidateData.run(["a", "b", "c"]) }.not_to raise_error
+	end 
+end 
+
 describe "BubbleSort"do
 	it "sorts correctly" do 
 		data = (1..10).to_a
