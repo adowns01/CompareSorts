@@ -23,7 +23,9 @@ class CompareSort
 		return end_time - start_time
 	end 
 
-	def self.compare_all(data, view=false)
+	def self.compare_all(info)
+		data = info[:data]
+		view = info[:view]
 
 		sorting_methods = %w(SelectionSort BubbleSort ModifiedBubbleSort InsertionSort)
 		sorting_times = {}
