@@ -1,5 +1,5 @@
 Gem::Specification.new do |s|
-  s.name        = 'compareSort'
+  s.name        = 'compare-sort'
   s.version     = '0.0.0'
   s.date        = '2014-08-14'
   s.summary     = "Compare sorting algs"
