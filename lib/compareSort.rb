@@ -34,7 +34,6 @@ end
 
 class SelectionSort
 	def self.run(data)
-
 		len = data.length
 
 		# iterate through each element in the array
@@ -50,59 +49,46 @@ class SelectionSort
 		end
 
 		return data
-
 	end
-
-
 end 
 
 
 class ModifiedBubbleSort
 	def self.run(data)
-		# Make sure there are at least 2 items in the array
-		# Create iterators
-
 		sorted = false 
-		
-		# counter = 1
+
 		while !sorted 
 			sorted = true
+			# iterate through the whole array
 			(data.length - 1).times  do |i|
+				# if the element ahead of the one we are on is smaller 
+				# then switch them
 				if (data[i] > data[i+1])
-					low_value = data[i+1]
-					data[i+1] = data[i]
-					data[i] = low_value
+					data[i+1], data[i] = data[i], data[i+1]
 					sorted = false 
 				end
 			end 
 		end
-
 		return data
-
 	end
 end 
 
 class BubbleSort
 	def self.run(data)
-		# Make sure there are at least 2 items in the array
-		# Create iterators
-
 		sorted = false 
 		
-		# counter = 1
 		(data.length).times  do |i|
-
-
 			(data.length - 1).times  do |j|
+
 				if (data[j] > data[j+1])
-					low_value = data[j+1]
-					data[j+1] = data[j]
-					data[j] = low_value
+					data[j+1], data[j] = data[j], data[j+1]
 				end
 			end 
 		end
 
 		return data
-
 	end
 end 
+
+
+
