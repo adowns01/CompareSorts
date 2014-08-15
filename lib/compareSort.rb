@@ -56,6 +56,9 @@ class View
 	end 
 end 
 
+class Validation 
+end 
+
 
 class InsertionSort
 	def self.run(data)
