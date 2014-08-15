@@ -35,26 +35,30 @@ end
 class SelectionSort
 	def self.run(data)
 
-		data.each_with_index do |datum, i|
-			min = datum
-			min_spot = i
+		len = data.length
 
-			(data.length - i).times do |j|
+		# iterate through each element in the array
+		data.each_with_index do |datum, datum_index|
+			min_spot = datum_index
 
-				if data[j+i] < min
-					min = data[j + i]
-					min_spot = j +i
+			# iterate through all elements past datum
+			(len - datum_index).times do |j|
+				current_index = j + datum_index
+
+				# If found a new min, save the location
+				if data[current_index] < data[min_spot]
+					min_spot = current_index
 				end 
 			end 
 
-			if min != datum 
-				#then swap 
-				data[min_spot] = datum
-				data[i] = min
-			end 
+			min = data[min_spot]
+			data[min_spot] = datum
+			data[datum_index] = min
+
+
 		end
 
-		p data
+		return data
 
 	end
 
