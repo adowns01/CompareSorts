@@ -64,5 +64,5 @@ CompareSort.compare_all(data: numbers)
 CompareSort.compare_all(data: numbers, view: true)
 # => {"SelectionSort"=>2.2e-05, "BubbleSort"=>1.9e-05, "ModifiedBubbleSort"=>2.5e-05, "InsertionSort"=>1.9e-05} 
 ```
-
+![compare all ](/images/compare_all.png?raw=true "compare all ")
 
