@@ -4,6 +4,8 @@ class CompareSort
 		sorting_method = info[:sorting_method]
 		timer = info[:timer]
 
+		ValidateData.run(data)
+
 		if timer 
 			sort = lambda { eval(sorting_method).run(data) }
 			return self.timer(sort)
@@ -56,7 +58,45 @@ class View
 	end 
 end 
 
+<<<<<<< HEAD
 class Validation 
+=======
+class ValidateData
+
+	def self.run(data)
+		@data = data
+		self.isArray
+		self.valuesAreConsistent
+	end 
+
+	def self.isArray
+		raise "Data must be an array" if (!@data.is_a?(Array))
+	end 
+
+	def self.valuesAreConsistent
+		if @data[0].is_a?(String)
+			valuesAreStrings
+		else
+			valuesAreNumbers
+		end
+	end 
+
+	def self.valuesAreNumbers
+		@data.each do |datum|
+			if (!datum.is_a?(Fixnum) && !datum.is_a?(Float))
+				raise "Values in array must be all numbers OR all strings" 
+			end
+		end 
+	end
+
+	def self.valuesAreStrings
+		@data.each do |datum|
+			if (!datum.is_a?(String))
+				raise "Values in array must be all numbers OR all strings" 
+			end
+		end 
+	end
+>>>>>>> master
 end 
 
 
@@ -66,7 +106,7 @@ class InsertionSort
 		# iterate through each element
 		data.each_with_index do |unsorted_num, i|
 			data[0..i].each_with_index do |sorted_num, j|
-					
+
 				if sorted_num > unsorted_num
 					# insert to its new spot
 					data.insert(j, unsorted_num)
