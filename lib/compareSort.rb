@@ -1,32 +1,32 @@
 class CompareSort
-  def self.bubble(data, time = false)
+	def self.bubble(data, time = false)
 
-  	if time 
-  		lam = lambda { BubbleSort.run(data) }
-  		return self.time(lam)
-  	else 
-    	return BubbleSort.run(data)
-    end
+		if time 
+			lam = lambda { BubbleSort.run(data) }
+			return self.time(lam)
+		else 
+			return BubbleSort.run(data)
+		end
 
-  end
+	end
 
-  def self.modBubble(data, time = false)
-  	if time 
-  		lam = lambda { ModifiedBubbleSort.run(data) }
-  		return self.time(lam)
-  	else 
-    	return ModifiedBubbleSort.run(data)
-    end
-    
-  end 
+	def self.modBubble(data, time = false)
+		if time 
+			lam = lambda { ModifiedBubbleSort.run(data) }
+			return self.time(lam)
+		else 
+			return ModifiedBubbleSort.run(data)
+		end
 
-  def self.time(sorting_method)
-  	start_time = Time.now
-  	sorted_list = sorting_method.call 
-  	end_time = Time.now
+	end 
 
-  	return end_time - start_time
-  end 
+	def self.time(sorting_method)
+		start_time = Time.now
+		sorted_list = sorting_method.call 
+		end_time = Time.now
+
+		return end_time - start_time
+	end 
 end
 
 
@@ -35,26 +35,21 @@ end
 class SelectionSort
 	def self.run(data)
 
-		data.each_with_index do |datum, i|
-			min = datum
-			min_spot = i
+		len = data.length
 
-			(data.length - i).times do |j|
-
-				if data[j+i] < min
-					min = data[j + i]
-					min_spot = j +i
-				end 
-			end 
-
-			if min != datum 
-				#then swap 
-				data[min_spot] = datum
-				data[i] = min
-			end 
+		# iterate through each element in the array
+		for i in 0..len-2
+			min_index = i
+			# iterate through the rest of the array
+			for j in i+1..len-1
+				# if min, save index
+				min_index = j if data[j] < data[min_index]
+			end
+			# put the min in it's correct spot
+			data[i], data[min_index] = data[min_index], data[i]
 		end
 
-		p data
+		return data
 
 	end
 
