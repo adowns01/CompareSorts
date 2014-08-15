@@ -1,33 +1,60 @@
 class CompareSort
-	def self.bubble(data, time = false)
+	def self.run(info)
+		data = info[:data]
+		sorting_method = info[:sorting_method]
+		timer = info[:timer]
 
-		if time 
-			lam = lambda { BubbleSort.run(data) }
-			return self.time(lam)
+		if timer 
+			sort = lambda { eval(sorting_method).run(data) }
+			return self.timer(sort)
 		else 
-			return BubbleSort.run(data)
+			return eval(sorting_method).run(data)
 		end
 
 	end
 
-	def self.modBubble(data, time = false)
-		if time 
-			lam = lambda { ModifiedBubbleSort.run(data) }
-			return self.time(lam)
-		else 
-			return ModifiedBubbleSort.run(data)
-		end
-
-	end 
-
-	def self.time(sorting_method)
+	def self.timer(sorting_method)
 		start_time = Time.now
 		sorted_list = sorting_method.call 
 		end_time = Time.now
 
 		return end_time - start_time
 	end 
+
+	def self.compare_all(data, view=false)
+
+		sorting_methods = %w(SelectionSort BubbleSort ModifiedBubbleSort)
+		sorting_times = {}
+
+		sorting_methods.each do |method|
+			info = { data: data, sorting_method: method, timer: true }
+			sorting_times[method] = self.run(info)
+		end 
+
+		if view
+			View.compare_all(sorting_times.sort_by{|method, time| time})
+		end
+
+		return sorting_times
+
+	end
 end
+
+class View 
+	def self.compare_all(data)
+		puts ""
+		print "SORTING METHOD"
+		print " "*(6)
+		puts "SECONDS"
+		puts "-"*27
+		data.each do |datum| 
+			print datum[0]
+			print " "*(20-datum[0].length)
+			puts datum[1]
+		end 
+		puts ""
+	end 
+end 
 
 
 
