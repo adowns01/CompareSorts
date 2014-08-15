@@ -1,5 +1,5 @@
 
 require_relative 'compareSort'
 
-p SelectionSort.run([1, 2, 5, 3, 9, 1])
+p ModifiedBubbleSort.run([1, 2, 5, 3, 9, 1])
 
