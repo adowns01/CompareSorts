@@ -1,4 +1,4 @@
-require_relative 'compareSort'
+require_relative 'compare-sort'
 require 'rspec'
 
 
