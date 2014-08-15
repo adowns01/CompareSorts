@@ -50,10 +50,7 @@ class SelectionSort
 		end
 
 		return data
-
 	end
-
-
 end 
 
 
