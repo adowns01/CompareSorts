@@ -14,11 +14,14 @@ require 'rspec'
 describe "BubbleSort"do
 	it "sorts correctly" do 
 		data = (1..10).to_a
-
 		expect(BubbleSort.run(data.shuffle)).to eq(data)
 	end 
-	it "when passed an empty array, it returns an empty array"
-	it "when passed an array with one element, it returns it"
+	it "when passed an empty array, it returns an empty array" do
+		expect(BubbleSort.run([])).to eq([]) 
+	end 
+	it "when passed an array with one element, it returns it" do 
+		expect(BubbleSort.run([1])).to eq([1]) 
+	end 
 
 end 
 
