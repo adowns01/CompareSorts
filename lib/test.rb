@@ -38,9 +38,16 @@ describe "ModifiedBubbleSort"do
 end 
 
 describe "SelectionSort"do
-	it "sorts correctly"
-	it "when passed an empty array, it returns an empty array"
-	it "when passed an array with one element, it returns it"
+	it "sorts correctly" do 
+		data = (1..10).to_a
+		expect(SelectionSort.run(data.shuffle)).to eq(data)
+	end 
+	it "when passed an empty array, it returns an empty array" do
+		expect(SelectionSort.run([])).to eq([]) 
+	end 
+	it "when passed an array with one element, it returns it" do 
+		expect(SelectionSort.run([1])).to eq([1]) 
+	end 
 end 
 
 describe "InsertionSort"do
