@@ -178,5 +178,59 @@ class BubbleSort
 	end
 end 
 
+class MergeSort 
+	def self.run(nums)
+
+		#split into single arrays 
+		nums.map! {|num| [num]}
+
+		while nums.length != 1
+			i = 0
+			while i < nums.length
+				merged_nums = self.merge(nums[i], nums[i+1])
+				nums.delete_at(i+1)
+				nums.delete_at(i)
+				nums.insert(i, merged_nums)
+				i += 1
+			end 
+
+		end
+
+		return nums[0]
+	end
+
+	def self.merge(nums1, nums2)
+		return nums1 if !nums2
+
+		total_length = nums1.length + nums2.length
+		sorted_nums = []
+
+		until sorted_nums.length == total_length
+			if nums2.empty?
+				sorted_nums += nums1
+			elsif nums1.empty?
+				sorted_nums += nums2
+			elsif nums2[0] < nums1[0]
+				sorted_nums << nums2.shift
+			else 
+				sorted_nums << nums1.shift
+			end 
+		end
+		return sorted_nums
+	end 
+end 
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
