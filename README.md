@@ -55,7 +55,7 @@ CompareSort.run(data: numbers, sorting_method: "BubbleSort", timer: true)
 ```
 
 ###Compare Times of All Algorithms
-Please use gem 0.1.0+ for comparing all algorithms. There is a bug in 0.0.1. 
+Use gem 0.1.0+ for comparing all algorithms. 
 
 ```ruby
 numbers = [1, 2, 3.5, 0]
