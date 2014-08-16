@@ -231,7 +231,7 @@ class QuickSort
 	end 
 
 	def self.sort_section(data, start_loc, end_loc)
-		return data if end_loc - start_loc <=1
+		return data if end_loc - start_loc <1
 		wall = start_loc
 		pivot = data[end_loc]
 

@@ -106,7 +106,24 @@ describe "MergeSort"do
 	end 
 end 
 
-describe "MergeSort"do
+describe "QuickSort"do
+	it "sorts correctly" do 
+		data = (1..10).to_a
+		expect(QuickSort.run(data.shuffle)).to eq(data)
+	end 
+	it "sorts strings correctly" do 
+		data = ("a".."z").to_a
+		expect(QuickSort.run(data.shuffle)).to eq(data)
+	end 
+	it "when passed an empty array, it returns an empty array" do
+		expect(QuickSort.run([])).to eq([]) 
+	end 
+	it "when passed an array with one element, it returns it" do 
+		expect(QuickSort.run([1])).to eq([1]) 
+	end 
+end 
+
+describe "CompareSort"do
 	it "bubble sorts correctly" do 
 		data = (1..10).to_a
 		info = { data: data.shuffle,
