@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'compare-sort'
-  s.version     = '0.0.0'
+  s.version     = '0.0.1'
   s.date        = '2014-08-14'
   s.summary     = "Compare sorting algs"
   s.description = "A way to compare how long sorting algorithms take on data that you provide"
