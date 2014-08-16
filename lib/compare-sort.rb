@@ -27,12 +27,13 @@ class CompareSort
 		data = info[:data]
 		view = info[:view]
 
-		sorting_methods = %w(SelectionSort BubbleSort ModifiedBubbleSort InsertionSort)
+		sorting_methods = %w(QuickSort SelectionSort BubbleSort ModifiedBubbleSort InsertionSort MergeSort)
 		sorting_times = {}
+		info_hash = { data: data.dup, timer: true }
 
 		sorting_methods.each do |method|
-			info = { data: data, sorting_method: method, timer: true }
-			sorting_times[method] = self.run(info)
+			info_hash = { data: data.dup, sorting_method: method, timer: true }
+			sorting_times[method] = self.run(info_hash)
 		end 
 
 		if view
@@ -222,7 +223,34 @@ class MergeSort
 end 
 
 
+class QuickSort 
+	def self.run(data)
+		return data if data.length <= 1
 
+		return self.sort_section(data, 0, data.length-1)
+	end 
+
+	def self.sort_section(data, start_loc, end_loc)
+		return data if end_loc - start_loc <=1
+		wall = start_loc
+		pivot = data[end_loc]
+
+
+		for i in start_loc..end_loc #valid indicies
+			if data[i]<pivot
+				smaller_datum = data[i]
+				data.delete_at(i)
+				data.insert(wall, smaller_datum)
+				wall += 1
+			end 
+		end 
+			data.insert(wall, pivot)
+			data.delete_at(end_loc + 1)
+
+		self.sort_section(data, start_loc, wall-1)
+		self.sort_section(data, wall+1, end_loc)
+	end 
+end 
 
 
 
