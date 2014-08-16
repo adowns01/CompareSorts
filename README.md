@@ -36,10 +36,13 @@ CompareSort.run(data: numbers, sorting_method: "BubbleSort")
 # => [0, 1, 2, 3.5]
 
 # The valid sorting method names are: 
-# - BubbleSort
-# - ModifiedBubbleSort
-# - SelectionSort
-# - InsertionSort
+# - BubbleSort (0.0.1+)
+# - ModifiedBubbleSort (0.0.1+)
+# - SelectionSort (0.0.1+)
+# - InsertionSort (0.0.1+)
+# - QuickSort (0.1.0+)
+# - MergeSort (0.1.0+)
+
 ```
 ###Time Specific Algorithm
 
@@ -52,6 +55,7 @@ CompareSort.run(data: numbers, sorting_method: "BubbleSort", timer: true)
 ```
 
 ###Compare Times of All Algorithms
+Please use gem 0.1.0+ for comparing all algorithms. There is a bug in 0.0.1. 
 
 ```ruby
 numbers = [1, 2, 3.5, 0]
