@@ -180,7 +180,7 @@ end
 
 class MergeSort 
 	def self.run(nums)
-
+		return nums if nums == []
 		#split into single arrays 
 		nums.map! {|num| [num]}
 
