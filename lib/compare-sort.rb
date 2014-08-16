@@ -184,8 +184,10 @@ class MergeSort
 		#split into single arrays 
 		nums.map! {|num| [num]}
 
+		#run until sorted
 		while nums.length != 1
 			i = 0
+			#iterate through the nested array and merge them
 			while i < nums.length
 				merged_nums = self.merge(nums[i], nums[i+1])
 				nums.delete_at(i+1)
@@ -193,13 +195,12 @@ class MergeSort
 				nums.insert(i, merged_nums)
 				i += 1
 			end 
-
 		end
-
 		return nums[0]
 	end
 
 	def self.merge(nums1, nums2)
+		# this will happen if there are an off number of arrays
 		return nums1 if !nums2
 
 		total_length = nums1.length + nums2.length
