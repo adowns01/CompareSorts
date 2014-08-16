@@ -106,4 +106,35 @@ describe "MergeSort"do
 	end 
 end 
 
-
+describe "MergeSort"do
+	it "bubble sorts correctly" do 
+		data = (1..10).to_a
+		info = { data: data.shuffle,
+				 sorting_method: "BubbleSort" }
+		expect(CompareSort.run(info)).to eq(data)
+	end 
+	it "modified bubble sorts correctly" do 
+		data = (1..10).to_a
+		info = { data: data.shuffle,
+				 sorting_method: "ModifiedBubbleSort" }
+		expect(CompareSort.run(info)).to eq(data)
+	end 
+	it "merge sorts correctly" do 
+		data = (1..10).to_a
+		info = { data: data.shuffle,
+				 sorting_method: "MergeSort" }
+		expect(CompareSort.run(info)).to eq(data)
+	end 
+	it "insertion sorts correctly" do 
+		data = (1..10).to_a
+		info = { data: data.shuffle,
+				 sorting_method: "InsertionSort" }
+		expect(CompareSort.run(info)).to eq(data)
+	end 
+	it "selection sorts correctly" do 
+		data = (1..10).to_a
+		info = { data: data.shuffle,
+				 sorting_method: "SelectionSort" }
+		expect(CompareSort.run(info)).to eq(data)
+	end 
+end 
