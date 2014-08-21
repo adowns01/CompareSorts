@@ -27,7 +27,7 @@ class CompareSort
 		data = info[:data]
 		view = info[:view]
 
-		sorting_methods = %w(QuickSort SelectionSort BubbleSort ModifiedBubbleSort InsertionSort MergeSort)
+		sorting_methods = %w(HeapSort QuickSort SelectionSort BubbleSort ModifiedBubbleSort InsertionSort MergeSort)
 		sorting_times = {}
 		info_hash = { data: data.dup, timer: true }
 

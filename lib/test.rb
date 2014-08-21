@@ -1,8 +1,8 @@
 require_relative 'compare-sort'
 require 'rspec'
 
-nums = (1..10).to_a.shuffle
-p HeapSort.run(nums)
+nums = (1..10000).to_a.shuffle
+p CompareSort.compare_all(data: nums, view: true)
 
 
 describe "ValidateData" do
