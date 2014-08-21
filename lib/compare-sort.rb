@@ -252,7 +252,132 @@ class QuickSort
 	end 
 end 
 
+class HeapSort 
+	def self.run(data)
+		return data if data.length <= 1
 
+		# create heap 
+		heap = self.create_heap(data)
+
+		# then sort
+		sorted_data  = self.sort_heap(heap)
+
+		return sorted_data
+	end 
+
+	def self.create_heap(data)
+		for i in 0..(data.length-1)
+			# if they are greater than their parent swap them
+			current_index = i
+			current_value = data[i]
+			parent_index = get_parent(i)
+
+			while parent_index != nil && current_value > data[parent_index]
+				parent_value = data[parent_index]
+
+				# swap
+				data[parent_index] = current_value
+				data[current_index] = parent_value
+
+				#reset values
+				current_index = parent_index
+				parent_index = get_parent(current_index)
+				
+			end  
+		end 
+		return data
+	end
+
+	def self.get_parent(index)
+		parent_index = (index-1)/2
+		return nil if parent_index < 0 
+		return parent_index
+	end
+
+	def self.sort_heap(heap)
+		number_sorted = 0
+
+		while number_sorted < heap.length
+			# switch the root and the last element 
+			# puts "swapping root: #{heap[0]} with bottom: #{heap[-1-number_sorted]}"
+
+			heap[0], heap[-1-number_sorted] = heap[-1-number_sorted], heap[0]
+			# p heap
+
+			number_sorted += 1
+			current_index = 0
+			current_value = heap[0]
+
+			while !self.valid_parent(current_index, heap, number_sorted)
+
+				# find highest valid child index
+				max_child_i = self.find_larger_child(current_index, heap, number_sorted)
+		
+				# swap them 
+
+				heap[max_child_i], heap[current_index] = heap[current_index], heap[max_child_i]
+
+				# reset values
+				current_index = max_child_i
+
+			end 
+		end 
+		return heap
+
+	end 
+
+	def self.find_larger_child(parent_index, heap, number_sorted)
+		children_i = []
+
+		l_child_i = left_child_index(parent_index)
+		r_child_i = right_child_index(parent_index)
+
+		if l_child_i < (heap.length - number_sorted)
+			children_i << l_child_i
+		end 
+
+		if r_child_i < (heap.length - number_sorted)
+			children_i << r_child_i
+		end 
+
+		return nil if children_i.length == 0
+
+		max_child_i = children_i[0]
+
+		children_i.each do |index|
+			max_child_i = index if heap[index] > heap[max_child_i]
+		end 
+
+		return max_child_i
+
+	end   
+
+	def self.valid_parent(parent_index, heap, number_sorted)
+		parent_value = heap[parent_index]
+
+		valid = true 
+		l_child_i = left_child_index(parent_index)
+		r_child_i = right_child_index(parent_index)
+
+		if l_child_i < (heap.length - number_sorted) && heap[l_child_i] > heap[parent_index]
+			valid = false
+		end 
+
+		if r_child_i < (heap.length - number_sorted) && heap[r_child_i] > heap[parent_index]
+			valid = false 
+		end 
+
+		return valid
+	end 
+
+	def self.left_child_index(parent_index)
+		return 2*parent_index + 1
+	end 
+
+	def self.right_child_index(parent_index)
+		return 2*parent_index + 2
+	end 
+end 
 
 
 
