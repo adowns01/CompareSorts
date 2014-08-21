@@ -1,10 +1,6 @@
 require_relative 'compare-sort'
 require 'rspec'
 
-nums = (1..10000).to_a.shuffle
-p CompareSort.compare_all(data: nums, view: true)
-
-
 describe "ValidateData" do
 	it "raises no error if data is array" do 
 		expect { ValidateData.run([]) }.not_to raise_error
@@ -125,6 +121,23 @@ describe "QuickSort"do
 	end 
 end 
 
+describe "HeapSort" do
+	it "sorts correctly" do 
+		data = (1..10).to_a
+		expect(HeapSort.run(data.shuffle)).to eq(data)
+	end 
+	it "sorts strings correctly" do 
+		data = ("a".."z").to_a
+		expect(HeapSort.run(data.shuffle)).to eq(data)
+	end 
+	it "when passed an empty array, it returns an empty array" do
+		expect(HeapSort.run([])).to eq([]) 
+	end 
+	it "when passed an array with one element, it returns it" do 
+		expect(HeapSort.run([1])).to eq([1]) 
+	end 
+end 
+
 describe "CompareSort"do
 	it "bubble sorts correctly" do 
 		data = (1..10).to_a
@@ -154,6 +167,13 @@ describe "CompareSort"do
 		data = (1..10).to_a
 		info = { data: data.shuffle,
 				 sorting_method: "SelectionSort" }
+		expect(CompareSort.run(info)).to eq(data)
+	end 
+
+	it "heap sorts correctly" do 
+		data = (1..10).to_a
+		info = { data: data.shuffle,
+				 sorting_method: "HeapSort" }
 		expect(CompareSort.run(info)).to eq(data)
 	end 
 end 
