@@ -1,6 +1,8 @@
 require_relative 'compare-sort'
 require 'rspec'
 
+nums = (1..10000).to_a.shuffle
+p CompareSort.compare_all(data: nums, view: true)
 
 
 describe "ValidateData" do
