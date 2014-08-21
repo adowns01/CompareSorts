@@ -42,6 +42,7 @@ CompareSort.run(data: numbers, sorting_method: "BubbleSort")
 # - InsertionSort (0.0.1+)
 # - QuickSort (0.1.0+)
 # - MergeSort (0.1.0+)
+# - HeapSort (0.1.1+)
 
 ```
 ###Time Specific Algorithm
